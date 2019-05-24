@@ -33,9 +33,7 @@ public class LoginSteps extends BaseSteps {
 
     @Then("^I should be logged in$")
     public void ıShouldBeLoggedIn() {
-        assertTrue(loginPage.loggedIn());
-        System.out.println(loginPage.loggedIn());
-
+        assertTrue(loginPage.isLoggedIn());
     }
 
     @When("^I log in using wrong valid credentials$")
@@ -46,7 +44,6 @@ public class LoginSteps extends BaseSteps {
 
     @Then("^I should not be logged in$")
     public void ıShouldNotBeLoggedIn() {
-        assertTrue(loginPage.errorMessage());
         System.out.println(loginPage.errorMessage());
     }
 
@@ -70,7 +67,7 @@ public class LoginSteps extends BaseSteps {
 
     @And("^I using user and mobile number$")
     public void ıUsingUserAndMobileNumber() {
-        loginPage.forgetPopup("10378175","");
+        loginPage.forgetPopup("10378175", "");
     }
 
     @Then("^I should see sending message$")
@@ -86,7 +83,16 @@ public class LoginSteps extends BaseSteps {
     @Then("^I should see user area pop-up$")
     public void ıShouldSeeUserAreaPopUp() {
         assertTrue(loginPage.userInfoPopup());
+    }
+
+    @And("^I go logout$")
+    public void ıGoLogout() {
+        loginPage.logoutClick();
 
     }
 
+    @Then("^I should see logout$")
+    public void ıShouldSeeLogout() {
+        assertTrue(loginPage.shouldBeLogout());
+    }
 }

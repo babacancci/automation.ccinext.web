@@ -2,8 +2,11 @@ package pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import utils.ConfigReader;
 import utils.Helper;
+
+import static utils.WebDriverUtils.sleep;
 
 
 public class LoginPageObject {
@@ -24,33 +27,54 @@ public class LoginPageObject {
         browser.findElement(By.cssSelector(".column #btnLogin")).click();
     }
 
-    public boolean loggedIn() {
+    public boolean isLoggedIn() {
         Helper.WaitForElementPresent(By.className("container-fluid"), browser);
-        browser.findElement(By.className("container-fluid")).isDisplayed();
-        return true;
+        WebElement login = browser.findElement(By.className("container-fluid"));
+        if (login.getText() != null) {
+            return true;
+        }
+        return false;
     }
 
     public boolean errorMessage() {
-        browser.findElement(By.cssSelector(".pop-up.animated.bounceInDown .item")).getText();
-        return true;
+        sleep(2000);
+        boolean error = browser.findElement(By.cssSelector(".pop-up.animated.bounceInDown .item")).isDisplayed();
+        if (error == true) {
+            return true;
+        }
+        return false;
     }
 
-    public void forgetButton(){
-        Helper.clickObjectByCss(".column .forgotPasswordText",browser);
+    public void forgetButton() {
+        Helper.clickObjectByCss(".column .forgotPasswordText", browser);
     }
 
-    public void forgetPopup(String userId,String phoneNumber){
-        Helper.setObjectById("txtForgotPasswordOutletNumber",userId,browser);
-        Helper.setObjectById("txtForgotPasswordPhoneNumber",phoneNumber,browser);
-        Helper.clickObjectById("btnSendCode",browser);
+    public void forgetPopup(String userId, String phoneNumber) {
+        Helper.setObjectById("txtForgotPasswordOutletNumber", userId, browser);
+        Helper.setObjectById("txtForgotPasswordPhoneNumber", phoneNumber, browser);
+        Helper.clickObjectById("btnSendCode", browser);
     }
 
-    public void userInfoClick(){
-        Helper.clickObjectByCss(".inputWrap.numberItem .informationBtn",browser);
+    public void userInfoClick() {
+        Helper.clickObjectByCss(".inputWrap.numberItem .informationBtn", browser);
     }
 
-    public boolean userInfoPopup(){
+    public boolean userInfoPopup() {
         browser.findElement(By.cssSelector(".inputWrap.numberItem .informationBtn")).isDisplayed();
         return true;
+    }
+
+    public void logoutClick() {
+        Helper.clickObjectByCss(".buttonHeader.moderate.clearfix .button .headerProfilePhoto", browser);
+        browser.findElements(By.cssSelector(".box.dropdown.is-open.animated.fadeIn ul li")).get(2).click();
+    }
+
+    public boolean shouldBeLogout() {
+        sleep(2000);
+        boolean logout = browser.findElement(By.cssSelector(".item.clearfix .logo")).isDisplayed();
+        if (logout == true) {
+            return true;
+        }
+        return false;
     }
 }

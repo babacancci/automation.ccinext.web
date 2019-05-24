@@ -39,3 +39,9 @@ Feature: Login functionality
     Given I am a user of CCINEXT
     When I user info click
     Then I should see user area pop-up
+
+  Scenario: Logout with invalid credentials
+    Given I am a user of CCINEXT
+    When I log in using valid credentials
+    And I go logout
+    Then I should see logout
