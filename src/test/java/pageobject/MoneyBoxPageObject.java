@@ -1,10 +1,12 @@
 package pageobject;
 
-import gherkin.lexer.He;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.Helper;
+
+import static utils.WebDriverUtils.sleep;
+
 
 public class MoneyBoxPageObject {
     public WebDriver browser;
@@ -14,11 +16,11 @@ public class MoneyBoxPageObject {
     }
 
     public void moneyBoxButton() {
-        browser.findElements(By.cssSelector(".clearfix .navMenu a")).get(1).click();
+        Helper.clickObjectByLinkText("K. Kumbara", browser);
     }
 
-    public void redMoneyBoxButton(){
-        Helper.clickObjectByCss(".col-md-12 .whatMoneyBox",browser);
+    public void redMoneyBoxButton() {
+        Helper.clickObjectByCss(".col-md-12 .whatMoneyBox", browser);
     }
 
     public boolean redMoneyBoxAbout() {
@@ -30,8 +32,8 @@ public class MoneyBoxPageObject {
         return false;
     }
 
-    public void pointHistoryButton(){
-        Helper.clickObjectByCss(".link.clearfix .pointHistoryPage",browser);
+    public void pointHistoryButton() {
+        Helper.clickObjectByCss(".link.clearfix .pointHistoryPage", browser);
     }
 
     public boolean availablePoints() {
@@ -40,6 +42,18 @@ public class MoneyBoxPageObject {
             return true;
         }
         return false;
+    }
+
+    public void butonCatalogButton() {
+        browser.findElements(By.cssSelector(".link.clearfix .outerLink")).get(0).click();
+    }
+
+    public void whereGiftButton() {
+        browser.findElements(By.cssSelector(".link.clearfix .outerLink")).get(1).click();
+    }
+
+    public void cancelCocaColaBoxPopup() {
+        Helper.clickObjectByCss(".clearfix.btnPopup .closeBtn",browser);
     }
 
 

@@ -274,6 +274,16 @@ public class Helper {
 
     }
 
+    public static void clickObjectByLinkText(String linkText, WebDriver driver) {
+        try {
+            WaitForElementPresent(By.linkText(linkText), driver);
+            SearchAndFindElement(By.linkText(linkText), driver).click();
+            Thread.sleep(waitTime);
+        } catch (Exception var3) {
+        }
+
+    }
+
     public static void clickObjectById(String id, WebDriver driver) {
         try {
             WaitForElementPresent(By.id(id), driver);
