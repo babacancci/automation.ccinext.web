@@ -26,12 +26,16 @@ Feature: Money Box functionality
     And I cancel Cocacola box
     Then I should see CCINEXT
 
-    Scenario: Coca cola box pop-up where gift cancel
-      Given I am a user of CCINEXT
-      And I log in using valid credentials
-      And I go to moneybox
-      When I go to where gift
-      And I cancel Cocacola box
-      Then I should see CCINEXT
+  Scenario: Coca cola box pop-up where gift cancel
+    Given I am a user of CCINEXT
+    And I log in using valid credentials
+    And I go to moneybox
+    When I go to where gift
+    And I cancel Cocacola box
+    Then I should see CCINEXT
+
+
+
+
 
 

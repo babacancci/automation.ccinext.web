@@ -94,6 +94,18 @@ public class Helper {
         }
     }
 
+    public static void switchToWindow(WebDriver driver){
+        for (String handle : driver.getWindowHandles()) {
+            driver.switchTo().window(handle);
+            driver.switchTo().window(handle);
+        }
+        for (String handle : driver.getWindowHandles()) {
+            driver.switchTo().window(handle);
+            driver.switchTo().window(handle);
+        }
+
+    }
+
     public static boolean IsAlertPresent(WebDriver driver) {
         try {
             Thread.sleep(waitTime);
