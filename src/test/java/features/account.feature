@@ -17,3 +17,11 @@ Feature: Account settings functionality
     When I go to my edit profile information
     Then I should see my information
 
+  Scenario: View customer rights
+    Given I am a user of CCINEXT
+    And I log in using valid credentials
+    When I go to my profile information
+    And I go to my edit profile information
+    And I view customer
+    Then I should see view customer rights
+

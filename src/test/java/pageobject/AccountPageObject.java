@@ -1,5 +1,6 @@
 package pageobject;
 
+import gherkin.lexer.He;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.Helper;
@@ -34,6 +35,15 @@ public class AccountPageObject {
     public void clickEditProfile() {
         Helper.clickObjectByCss(".edit.btnEditProfile", browser);
         Helper.clickObjectById("btnUpdateProfile", browser);
+    }
+
+    public void customerVievButton(){
+        Helper.clickObjectById( "viewProfileCustomerRights",browser);
+    }
+
+    public boolean customerView(){
+        browser.findElement(By.linkText("Müşteri Hakları")).isEnabled();
+        return true;
     }
 
 

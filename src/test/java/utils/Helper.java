@@ -94,7 +94,7 @@ public class Helper {
         }
     }
 
-    public static void switchToWindow(WebDriver driver){
+    public static void switchToWindow(WebDriver driver) {
         for (String handle : driver.getWindowHandles()) {
             driver.switchTo().window(handle);
             driver.switchTo().window(handle);

@@ -1,5 +1,6 @@
 package steps;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageobject.AccountPageObject;
@@ -34,4 +35,13 @@ public class AccountSteps extends BaseSteps {
         accountPage.clickEditProfile();
     }
 
+    @And("^I view customer$")
+    public void ıViewCustomer() {
+        accountPage.customerVievButton();
+    }
+
+    @Then("^I should see view customer rights$")
+    public void ıShouldSeeViewCustomerRights() {
+        assertTrue(accountPage.customerView());
+    }
 }

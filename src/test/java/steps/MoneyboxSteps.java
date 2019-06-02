@@ -65,5 +65,4 @@ public class MoneyboxSteps {
     public void ıGoToWhereGift() {
         moneyboxPage.whereGiftButton();
     }
-
 }

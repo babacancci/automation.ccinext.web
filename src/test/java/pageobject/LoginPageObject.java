@@ -38,7 +38,7 @@ public class LoginPageObject {
 
     public boolean errorMessage() {
         sleep(2000);
-        boolean error = browser.findElement(By.cssSelector(".pop-up.animated.bounceInDown .item")).isDisplayed();
+        boolean error = browser.findElement(By.cssSelector(".pop-up.animated.bounceInDown .item")).isEnabled();
         if (error == true) {
             return true;
         }
@@ -60,7 +60,7 @@ public class LoginPageObject {
     }
 
     public boolean userInfoPopup() {
-        browser.findElement(By.cssSelector(".inputWrap.numberItem .informationBtn")).isDisplayed();
+        browser.findElement(By.cssSelector(".inputWrap.numberItem .informationBtn")).isEnabled();
         return true;
     }
 
@@ -71,7 +71,7 @@ public class LoginPageObject {
 
     public boolean shouldBeLogout() {
         sleep(2000);
-        boolean logout = browser.findElement(By.cssSelector(".item.clearfix .logo")).isDisplayed();
+        boolean logout = browser.findElement(By.cssSelector(".item.clearfix .logo")).isEnabled();
         if (logout == true) {
             return true;
         }
